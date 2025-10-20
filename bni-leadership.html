@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BNI Route 66 Leadership - Print Ready</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Print styles */
+        @media print {
+            body { margin: 0; padding: 0; }
+            .page { page-break-after: always; margin: 0; }
+            @page { size: 11in 8.5in landscape; margin: 0; }
+        }
+        
+        .page {
+            width: 11in;
+            height: 8.5in;
+            position: relative;
+            background: white;
+            display: flex;
+        }
+        
+        .panel {
+            width: 5.5in;
+            height: 8.5in;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Front Cover (Right panel of page 1) */
+        .front-cover {
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            position: relative;
+        }
+        
+        .front-cover::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 400px;
+            height: 400px;
+            background: #D32F2F;
+            border-radius: 50%;
+            opacity: 0.15;
+        }
+        
+        .front-cover::after {
+            content: '';
+            position: absolute;
+            bottom: -200px;
+            left: -200px;
+            width: 400px;
+            height: 400px;
+            background: #1A237E;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
+        .bni-logo-img {
+            width: 260px;
+            height: auto;
+            position: relative;
+            z-index: 10;
+            margin-bottom: 20px;
+        }
+        
+        .divider {
+            width: 160px;
+            height: 8px;
+            background: linear-gradient(90deg, #D32F2F 0%, #1A237E 50%, #D32F2F 100%);
+            border-radius: 4px;
+            margin: 40px 0;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .leadership-box {
+            background: linear-gradient(135deg, #ffffff, #f5f5f5);
+            border: 4px solid #D32F2F;
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 10;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+        
+        .leadership-title {
+            font-size: 30px;
+            font-weight: 900;
+            color: #1A237E;
+            margin-bottom: 12px;
+        }
+        
+        .year-badge {
+            display: inline-block;
+            background: #D32F2F;
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 22px;
+            font-weight: 900;
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+        }
+        
+        /* Back Cover (Left panel of page 1) */
+        .back-cover {
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .back-cover::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            left: -150px;
+            width: 350px;
+            height: 350px;
+            background: #1A237E;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
+        .back-cover::after {
+            content: '';
+            position: absolute;
+            bottom: -180px;
+            right: -180px;
+            width: 380px;
+            height: 380px;
+            background: #D32F2F;
+            border-radius: 50%;
+            opacity: 0.15;
+        }
+        
+        .president-photo-container {
+            position: relative;
+            z-index: 10;
+            margin-bottom: 15px;
+            margin-top: 25px;
+        }
+        
+        .president-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid #D32F2F;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .president-label {
+            text-align: center;
+            margin-top: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #D32F2F;
+        }
+        
+        .back-bni-logo-img {
+            width: 180px;
+            height: auto;
+            position: relative;
+            z-index: 10;
+            margin-bottom: 10px;
+        }
+        
+        .meeting-info-box {
+            background: linear-gradient(135deg, #ffffff, #f5f5f5);
+            border: 4px solid #D32F2F;
+            border-radius: 16px;
+            padding: 18px;
+            margin-top: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+        
+        .meeting-info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #D32F2F;
+        }
+        
+        .join-title {
+            font-size: 18px;
+            font-weight: 900;
+            color: #1A237E;
+            margin-bottom: 10px;
+        }
+        
+        .restaurant-badge {
+            display: inline-block;
+            background: #D32F2F;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 900;
+            margin-bottom: 8px;
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+        }
+        
+        .meeting-time {
+            font-size: 16px;
+            font-weight: 900;
+            color: #D32F2F;
+            margin: 8px 0;
+        }
+        
+        .address-line {
+            font-size: 12px;
+            color: #4A4A4A;
+            font-weight: 600;
+            margin: 3px 0;
+        }
+        
+        .tagline {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 2px solid #e5e7eb;
+            font-size: 10px;
+            color: #6b7280;
+            font-style: italic;
+        }
+        
+        /* Inside panels */
+        .inside-left, .inside-right {
+            padding: 28px 22px;
+            background: #f9fafb;
+        }
+        
+        .mission-section {
+            background: linear-gradient(135deg, rgba(211, 47, 47, 0.08), rgba(26, 35, 126, 0.08));
+            border-left: 6px solid #D32F2F;
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            position: relative;
+        }
+        
+        .mission-section::before {
+            content: '🎯';
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            font-size: 32px;
+        }
+        
+        .mission-title {
+            font-size: 24px;
+            font-weight: 900;
+            color: #D32F2F;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .mission-text {
+            font-size: 10px;
+            line-height: 1.5;
+            color: #4A4A4A;
+            font-weight: 600;
+        }
+        
+        .section-title {
+            font-size: 21px;
+            font-weight: 900;
+            color: #1A237E;
+            margin-bottom: 14px;
+        }
+        
+        /* Leader cards */
+        .leader-card {
+            background: white;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 13px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: flex;
+            gap: 12px;
+            position: relative;
+        }
+        
+        .leader-card.red {
+            border-left: 4px solid #D32F2F;
+        }
+        
+        .leader-card.navy {
+            border-left: 4px solid #1A237E;
+        }
+        
+        .leader-photo {
+            width: 65px;
+            height: 65px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .leader-photo.red {
+            border: 3px solid #D32F2F;
+        }
+        
+        .leader-photo.navy {
+            border: 3px solid #1A237E;
+        }
+        
+        .leader-content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .leader-name {
+            font-size: 14px;
+            font-weight: 900;
+            margin-bottom: 3px;
+        }
+        
+        .leader-name.red {
+            color: #D32F2F;
+        }
+        
+        .leader-name.navy {
+            color: #1A237E;
+        }
+        
+        .leader-title {
+            font-size: 10px;
+            font-weight: 700;
+            color: #4A4A4A;
+            margin-bottom: 5px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            margin-bottom: 6px;
+        }
+        
+        .contact-item {
+            font-size: 9px;
+            color: #6b7280;
+            font-weight: 600;
+        }
+        
+        .description {
+            font-size: 9px;
+            line-height: 1.45;
+            color: #4A4A4A;
+            margin-bottom: 6px;
+        }
+        
+        .team-box {
+            padding: 6px 8px;
+            border-radius: 5px;
+            font-size: 8px;
+            color: white;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .team-box.red-bg {
+            background: #D32F2F;
+        }
+        
+        .team-box.navy-bg {
+            background: #1A237E;
+        }
+        
+        .quote {
+            font-size: 8px;
+            font-style: italic;
+            line-height: 1.35;
+            color: #6b7280;
+            padding-left: 7px;
+            border-left: 2px solid #e5e7eb;
+        }
+        
+        .leader-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #D32F2F 20%, #1A237E 50%, #D32F2F 80%, transparent);
+            margin: 8px 0;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <!-- PAGE 1: Front of sheet (Back Cover on left, Front Cover on right) -->
+    <div class="page">
+        <!-- Back Cover (Left Panel) -->
+        <div class="panel back-cover">
+            <div class="president-photo-container">
+                <img src="Murtaza Jaafri 2.jpg" alt="Murtaza Jaafri" class="president-photo" id="president-img">
+                <div class="president-label">President - Murtaza Jaafri</div>
+            </div>
+            
+            <img src="BNI Logo.jpg" alt="BNI Logo" class="back-bni-logo-img">
+            
+            <div class="meeting-info-box">
+                <h3 class="join-title">Join Us Every Week!</h3>
+                
+                <div class="restaurant-badge">CHASES Restaurant</div>
+                
+                <div class="meeting-time">6:45 - 8:30 AM</div>
+                
+                <div class="address-line" style="font-weight: 700; font-size: 13px; color: #1A237E; margin-top: 6px;">La Verne</div>
+                <div class="address-line">2079 Bonita Ave # 100</div>
+                <div class="address-line">La Verne, CA 91750</div>
+                
+                <div class="tagline">
+                    Building Relationships. Growing Business.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Front Cover (Right Panel) -->
+        <div class="panel front-cover">
+            <img src="BNI Logo.jpg" alt="BNI Logo" class="bni-logo-img">
+            
+            <div class="divider"></div>
+            
+            <div class="leadership-box">
+                <h3 class="leadership-title">Leadership and Support Team</h3>
+                <div class="year-badge">2025</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PAGE 2: Back of sheet (Inside Left on left, Inside Right on right) -->
+    <div class="page">
+        <!-- Inside Left Panel -->
+        <div class="panel inside-left">
+            <div class="mission-section">
+                <h2 class="mission-title">💡 Our Mission 🤝</h2>
+                <p class="mission-text">
+                    The mission of BNI is to help Members increase their business through a structured, positive, and professional referral marketing program that enables them to develop long-term, meaningful relationships with quality business professionals.
+                </p>
+            </div>
+            
+            <h2 class="section-title">Meet Your Leaders</h2>
+            
+            <!-- Leader 1: Murtaza Jaafri -->
+            <div class="leader-card red">
+                <img src="Murtaza Jaafri.jpg" alt="Murtaza Jaafri" class="leader-photo red" id="murtaza-img">
+                <div class="leader-content">
+                    <h3 class="leader-name red">Murtaza Jaafri</h3>
+                    <div class="leader-title">President</div>
+                    <div class="description">
+                        Murtaza leads our weekly meetings with energy and passion, working closely with our Leadership and Support Teams to make every gathering count.
+                    </div>
+                    <div class="quote">
+                        "My goals are to keep meetings exciting, efficient, engaging, and on time, show the value of BNI to members and visitors, build a chapter of 50 qualified, participating, and hungry members who help us grow through word of mouth, and push our members to be in the GREEN! I welcome feedback—both constructive and encouraging—as we work together to make this the chapter everyone's talking about!"
+                    </div>
+                </div>
+            </div>
+            
+            <div class="leader-divider"></div>
+            
+            <!-- Leader 2: Vanessa Van Holland -->
+            <div class="leader-card navy">
+                <img src="Vanessa Van Holland.jpg" alt="Vanessa Van Holland" class="leader-photo navy" id="vanessa-img">
+                <div class="leader-content">
+                    <h3 class="leader-name navy">Vanessa Van Holland</h3>
+                    <div class="leader-title">Vice President</div>
+                    <div class="contact-info">
+                        <div class="contact-item">📍 Restoration 1</div>
+                        <div class="contact-item">📞 (909) 223-7241</div>
+                    </div>
+                    <div class="description">
+                        Vanessa keeps track of attendance, referrals, 1-2-1s, CEUs, and closed business to help ensure every member stays in the green and thriving!
+                    </div>
+                    <div class="team-box navy-bg">
+                        Membership Committee: Razi, CJ, Alex B., Dr. and Fred
+                    </div>
+                    <div class="quote">
+                        "Support the President and leadership team in maintaining chapter accountability, ensuring all members meet BNI standards and achieve measurable growth."
+                    </div>
+                </div>
+            </div>
+            
+            <div class="leader-divider"></div>
+            
+            <!-- Leader 3: Christian Kama -->
+            <div class="leader-card red">
+                <img src="Christian Kama.jpg" alt="Christian Kama" class="leader-photo red" id="christian-img">
+                <div class="leader-content">
+                    <h3 class="leader-name red">Christian Kama</h3>
+                    <div class="leader-title">Treasurer</div>
+                    <div class="contact-info">
+                        <div class="contact-item">📍 Palm Coast Solar</div>
+                        <div class="contact-item">📞 (626) 214-5477</div>
+                    </div>
+                    <div class="description">
+                        Christian manages our monthly dues ($68) and coordinates the speaker rotation schedule. Complete your MSP and you're in the rotation—8 minutes plus Q&A, with 16 minutes for first-timers!
+                    </div>
+                    <div class="quote">
+                        "My goal is to keep our chapters finance organized, making sure all payments are collected on time and help the group run smoothly."
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Inside Right Panel -->
+        <div class="panel inside-right">
+            <!-- Leader 4: Claudia Lagoo -->
+            <div class="leader-card navy">
+                <img src="Claudia Lagoo.jpg" alt="Claudia Lagoo" class="leader-photo navy" id="claudia-img">
+                <div class="leader-content">
+                    <h3 class="leader-name navy">Claudia Lagoo</h3>
+                    <div class="leader-title">Event Coordinator</div>
+                    <div class="contact-info">
+                        <div class="contact-item">📍 Fortune Escrow</div>
+                        <div class="contact-item">📞 (626) 677-0635</div>
+                    </div>
+                    <div class="description">
+                        Claudia is your go-to person for all chapter events! She keeps everyone informed about BNI training, networking opportunities, and events our members are hosting or attending.
+                    </div>
+                    <div class="quote">
+                        "My goal for this year is to inform my fellow chapter members about opportunities to learn and network, by keeping them updated on trainings, mixers, etc."
+                    </div>
+                </div>
+            </div>
+            
+            <div class="leader-divider"></div>
+            
+            <!-- Leader 5: Alex Bisono -->
+            <div class="leader-card red">
+                <img src="Alex Bisono.jpg" alt="Alex Bisono" class="leader-photo red" id="alex-img">
+                <div class="leader-content">
+                    <h3 class="leader-name red">Alex Bisono</h3>
+                    <div class="leader-title">Education Coordinator</div>
+                    <div class="contact-info">
+                        <div class="contact-item">📍 New York Life Insurance</div>
+                        <div class="contact-item">📞 (626) 367-3014</div>
+                    </div>
+                    <div class="description">
+                        Alex brings us valuable education moments each week, sharing networking tips and business-building strategies to help us grow both individually and as a chapter.
+                    </div>
+                    <div class="quote">
+                        "My goal is to help members grow their business by improving their knowledge and tools BNI offers, making them a star networker and referral partner."
+                    </div>
+                </div>
+            </div>
+            
+            <div class="leader-divider"></div>
+            
+            <!-- Leader 6: Jorge Abich -->
+            <div class="leader-card navy">
+                <img src="Jorge Abich.jpg" alt="Jorge Abich" class="leader-photo navy" id="jorge-img">
+                <div class="leader-content">
+                    <h3 class="leader-name navy">Jorge Abich</h3>
+                    <div class="leader-title">Mentor Coordinator</div>
+                    <div class="contact-info">
+                        <div class="contact-item">📍 Socal Platinum Mortgage</div>
+                        <div class="contact-item">📞 (213) 407-2700</div>
+                    </div>
+                    <div class="description">
+                        Jorge and his team ensure every member feels welcome, supported, and mentored. They're dedicated to making sure your BNI experience is engaging and rewarding!
+                    </div>
+                    <div class="team-box navy-bg">
+                        Mentor Team: Matthew, Andrew, Dr. Gina, and Luke
+                    </div>
+                    <div class="quote">
+                        "My goal is to ensure that all new members are fully aware of all the tools that BNI offers to them, so their experience in BNI is profitable."
+                    </div>
+                </div>
+            </div>
+            
+            <div class="leader-divider"></div>
+            
+            <!-- Leader 7: Kym Morosan -->
+            <div class="leader-card red">
+                <img src="Kym Morosan.jpg" alt="Kym Morosan" class="leader-photo red" id="kym-img">
+                <div class="leader-content">
+                    <h3 class="leader-name red">Kym Morosan</h3>
+                    <div class="leader-title">Visitor Host Coordinator</div>
+                    <div class="contact-info">
+                        <div class="contact-item">📍 Sunflower Funeral Planning</div>
+                        <div class="contact-item">📞 (626) 543-0005</div>
+                    </div>
+                    <div class="description">
+                        Kym and her team make sure every visitor feels welcome and valued from the moment they arrive. They set up registration, conduct orientations, and follow up within 24 hours to ensure a fantastic first experience!
+                    </div>
+                    <div class="team-box navy-bg">
+                        Kym's Team: Mike Antasyan, Dr. Fred Wong, Mick Ramos, Gloria Kessell
+                    </div>
+                    <div class="quote">
+                        "My goal is to give visitors a great 1st time experience and follow up."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
